@@ -33,7 +33,7 @@ export default function App() {
 
   return (
     <div className="App">
-      <h1>Emoji interpreter</h1>
+      <h1>Find out the meaning</h1>
       <input onChange={emojiInputHandler}></input>
       <div id="output">{meaning}</div>
 
