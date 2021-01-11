@@ -20,10 +20,15 @@ export default function App() {
     var userInput = event.target.value;
 
     if (userInput in emojiDictionary) {
-      setMeaning(emojiDictionary[userInput]);
+      var meaning = emojiDictionary[userInput];
+      setMeaning(meaning);
     } else {
       setMeaning("It is not in our database");
     }
+  }
+
+  function emojiClickHanlder(emoji) {
+    setMeaning(emojiDictionary[emoji]);
   }
 
   return (
@@ -37,7 +42,16 @@ export default function App() {
         {emojisWeKnow.map((item) => {
           return (
             <li
-              style={{ listStyle: "none", padding: "1rem", display: "inline" }}
+              style={{
+                listStyle: "none",
+                padding: "1rem",
+                display: "inline",
+                fontSize: "1.5rem"
+              }}
+              key={item}
+              onClick={() => {
+                emojiClickHanlder(item);
+              }}
             >
               {item}
             </li>
