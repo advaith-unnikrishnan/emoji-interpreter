@@ -13,8 +13,7 @@ const emojiDictionary = {
   "🎊": "Confetti ball"
 };
 
-const bookList = ["Atomic Habits", "Think and Grow Rich", "Zero to One"];
-
+var emojisWeKnow = Object.keys(emojiDictionary);
 export default function App() {
   const [meaning, setMeaning] = useState("");
   function emojiInputHandler(event) {
@@ -32,9 +31,17 @@ export default function App() {
       <h1>Emoji interpreter</h1>
       <input onChange={emojiInputHandler}></input>
       <div id="output">{meaning}</div>
+
+      <h3>Emojis we Know</h3>
       <ul>
-        {bookList.map((item) => {
-          return <li>{item}</li>;
+        {emojisWeKnow.map((item) => {
+          return (
+            <li
+              style={{ listStyle: "none", padding: "1rem", display: "inline" }}
+            >
+              {item}
+            </li>
+          );
         })}
       </ul>
     </div>
