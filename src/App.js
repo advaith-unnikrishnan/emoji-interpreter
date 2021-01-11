@@ -13,6 +13,8 @@ const emojiDictionary = {
   "🎊": "Confetti ball"
 };
 
+const bookList = ["Atomic Habits", "Think and Grow Rich", "Zero to One"];
+
 export default function App() {
   const [meaning, setMeaning] = useState("");
   function emojiInputHandler(event) {
@@ -30,6 +32,11 @@ export default function App() {
       <h1>Emoji interpreter</h1>
       <input onChange={emojiInputHandler}></input>
       <div id="output">{meaning}</div>
+      <ul>
+        {bookList.map((item) => {
+          return <li>{item}</li>;
+        })}
+      </ul>
     </div>
   );
 }
